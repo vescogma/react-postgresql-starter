@@ -9,7 +9,7 @@
     "dev:migrate": "knex migrate:latest --env development",
     "dev:seed": "knex seed:run --env development",
     "dev:db-setup": "npm run dev:migrate && npm run dev:seed",
-    "start": "cross-env NODE_ENV=production http-server ./dist"
+    "start": "npm run build && cross-env NODE_ENV=production nodemon ./server/server.js"
   },
   "author": "vescogma",
   "license": "ISC",
