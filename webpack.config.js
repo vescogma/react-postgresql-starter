@@ -29,6 +29,10 @@ module.exports = {
   resolve: {
     root: path.resolve(__dirname, 'src'),
     alias: {
+      actions: 'actions',
+      actionTypes: 'actionTypes',
+      api: 'api',
+      constants: 'constants',
       containers: 'containers',
       reducers: 'reducers',
       routes: 'store/routes',

@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "npm run clean && cross-env NODE_ENV=production webpack -p",
-    "dev": "cross-env NODE_ENV=development nodemon ./server/server.js --ignore ./src/**",
+    "dev": "cross-env NODE_ENV=development nodemon ./server/server.js --ignore ./src/",
     "dev:migrate": "knex migrate:latest --env development",
     "dev:seed": "knex seed:run --env development",
     "dev:db-setup": "npm run dev:migrate && npm run dev:seed",
@@ -48,7 +48,6 @@
     "react-router-redux": "^4.0.7",
     "react-select": "^1.0.0-rc.2",
     "redux": "^3.6.0",
-    "redux-form": "^6.2.0",
     "redux-saga": "^0.12.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
