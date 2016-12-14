@@ -8,7 +8,7 @@ const getShows = () => knex('shows').select();
 const query = {
   delete: (id) => getShows().where('id', parseInt(id)).del(),
   get: (id) => (!id ? getShows() : getShows().where('id', parseInt(id)).first()),
-  post: (body) => knex('shows').insert(req.body, 'id'),
+  post: (body) => knex('shows').insert(body, 'id'),
   update: (id, changes) => getShows().where('id', parseInt(id)).update(changes),
 }
 

@@ -6,9 +6,8 @@
     "clean": "rm -rf ./dist",
     "build": "npm run clean && cross-env NODE_ENV=production webpack -p",
     "dev": "cross-env NODE_ENV=development nodemon ./server/server.js --ignore ./src/",
-    "dev:migrate": "knex migrate:latest --env development",
-    "dev:seed": "knex seed:run --env development",
-    "dev:db-setup": "npm run dev:migrate && npm run dev:seed",
+    "migrate": "knex migrate:latest --env development",
+    "seed": "knex seed:run --env development",
     "start": "npm run build && cross-env NODE_ENV=production nodemon ./server/server.js"
   },
   "author": "vescogma",

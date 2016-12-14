@@ -4,20 +4,17 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('../webpack.config.js');
 const webpackCompile = webpack(webpackConfig);
 
-function useWebpackMiddleware(app) {
-  app.use(webpackDevMiddleware(webpackCompile, {
-    publicPath: webpackConfig.output.publicPath,
-    stats: {
-      colors: true,
-      chunks: false,
-      'errors-only': true
-    }
-  }));
-  app.use(webpackHotMiddleware(webpackCompile, {
-    log: console.log
-  }));
+const webpackDevConfig = () => webpackDevMiddleware(webpackCompile, {
+  publicPath: webpackConfig.output.publicPath,
+  stats: {
+    colors: true,
+    chunks: false,
+    'errors-only': true
+  }
+});
 
-  return app;
-}
+const webpackHotConfig = () => webpackHotMiddleware(webpackCompile, {
+  log: console.log
+});
 
-module.exports = useWebpackMiddleware;
+module.exports = { webpackDevConfig, webpackHotConfig };
